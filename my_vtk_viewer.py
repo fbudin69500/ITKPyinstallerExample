@@ -17,7 +17,8 @@ def visualize(argv):
 
     # Open image with ITK
     image = itk.imread(args.input_image)
-    median_image = itk.median_image_filter(image, Radius = args.radius)
+    #median_image = itk.median_image_filter(image, Radius = args.radius)
+    median_image = itk.MedianImageFilter(image, Radius = args.radius)
     itk.imwrite(median_image, args.output_image)
     itk.ViewImage[median_image].View(median_image)
     
